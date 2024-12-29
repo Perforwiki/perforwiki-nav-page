@@ -6,16 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakura.css/css/sakura.css" type="text/css">
-    <title>Navigation - Perforwiki Group</title>
+    <title>Redirecting - Perforwiki Group</title>
 </head>
 <body>
-    <h1>Perforwiki Navigation Page</h1>
-    <p>This site is under construction, so feel free to check back for updates.</p>
-    <h2>maimai</h2>
-    <p>maimai.wiki (WIP)</p>
-    <h2>CHUNITHM</h2>
-    <p>chunithm.wiki (WIP)</p>
-    <h2>オンゲキ</h2>
-    <p>ongeki.wiki (WIP)</p>
+<p>Trying to redirect to your language.</p>
+<p>If this page didn't redirect automatically, please refresh.</p>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+        const userLang = navigator.language||navigator.userLanguage;
+
+        const langMapping = {
+            'en': '/docs/intro_en.html',
+            'zh': '/docs/intro_zh.html',
+        };
+
+        const langCode = userLang.split('-')[0];
+
+        if (langMapping[langCode]){
+            window.location.href = langMapping[langCode];
+        }else{
+            window.location.href = '/docs/intro_en.html'
+        }
+    });
+</script>
 </html>
